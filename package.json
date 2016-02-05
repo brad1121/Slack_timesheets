@@ -1,0 +1,17 @@
+{
+  "name": "timepal",
+  "version": "1.0.0",
+  "description": "Chatbot for slack for logging time spent on jobs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brad",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mysql": "^2.10.2",
+    "node-mysql": "^0.4.2",
+    "slack-client": "^1.5.1"
+  }
+}
