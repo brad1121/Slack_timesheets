@@ -1,7 +1,7 @@
 Slack = require('slack-client');
 database = require('./database');
-
-var slackToken = '';// Add a bot at https://my.slack.com/services/new/bot and copy the token here.
+var private_detail = require('./details');
+var slackToken = private_detail.slackToken;// Add a bot at https://my.slack.com/services/new/bot and copy the token here.
 var autoReconnect = true //# Automatically reconnect after an error response from Slack.
 var autoMark = true //# Automatically mark each message as read after it is processed.
 

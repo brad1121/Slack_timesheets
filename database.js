@@ -1,8 +1,8 @@
 var mysql = require('mysql');
-
-var db_pass = "";
-var db_user = "";
-var db_db = "";
+var private_detail = require('./details');
+var db_pass = private_detail.db_pass;
+var db_user = private_detail.db_user;
+var db_db = private_detail.db_db;
 
 var pool = mysql.createPool({
 	connectionLimit : 25,
