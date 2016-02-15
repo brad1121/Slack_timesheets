@@ -16,8 +16,9 @@ var pool = mysql.createPool({
 function db(req,res){
 	pool.getConnection(function(error,connection){
 		if(error){
-			connection.release();
-			res.json({"code" : 100, "status" : "Error in connection database"});
+			if(connection !== undefined){connection.release();}
+			console.log(error);
+			res(  false );
 			return;
 		};
 
@@ -42,9 +43,9 @@ function db(req,res){
 					if(rows.length < 1){
 						res("No results found");
 					}
-					var csv = '"User","MYOB_Name","Payroll Category","Job Number","Client","Description","Hours Spent"\r\n';
+					var csv = '"User","MYOB_Name","Payroll Category","Job Number","Client","Description","Hours Spent","Date"\r\n';
 					for(i=0;i<rows.length;i++){
-						csv += '"'+rows[i]['user']+'","'+rows[i]['myob_name']+'","'+rows[i]['Payroll_category']+'","'+rows[i]['job_number']+'","'+rows[i]['client']+'","'+rows[i]['description']+'","'+rows[i]['time_spent']+'"\r\n';
+						csv += '"'+rows[i]['user']+'","'+rows[i]['myob_name']+'","'+rows[i]['Payroll_category']+'","'+rows[i]['job_number']+'","'+rows[i]['client']+'","'+rows[i]['description']+'","'+rows[i]['time_spent']+'","'+rows[i]['date_logged']+'"\r\n';
 					}
 					
 					res(csv);
