@@ -69,14 +69,17 @@ slack.on('message', function(message) {
    			channel.send(response);
    			 return console.log("@" + slack.self.name + " responded with \"" + response + "\"");
    		}else{
+        var today = new Date();
+
    			var send_to_db = {	request:'insert',
    								query: {user:userName,
    										job_number: job_prams[0],
    										client: job_prams[1],
    										description: job_prams[2],
    										time_spent: job_prams[3],
-   										myob_name: jobsName
-   										}
+   										myob_name: jobsName,
+                      date_logged: today.toLocaleString()
+                      }
    								}
    				if(job_prams[4] !== undefined){
    					 var regEx = /^\d{4}-\d{2}-\d{2}$/;
