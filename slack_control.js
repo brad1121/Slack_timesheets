@@ -42,6 +42,9 @@ slack.on('open', function() {
   console.log('You are in: ' + channels.join(', '));
   console.log('As well as: ' + groups.join(', '));
   messages = unreads === 1 ? 'message' : 'messages';
+
+  //Process unread messages
+
   return console.log("You have " + unreads + " unread " + messages);
 });
 
