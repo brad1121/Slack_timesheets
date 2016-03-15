@@ -123,7 +123,7 @@ slack.on('message', function(message) {
    					channel.send(response);
    					 return console.log("@" + slack.self.name + " responded with \"" + response + "\"");
    				});
-   	}else if(text == "--help"){
+   	}else if(text == "--help" || text == "help"){
    		response = "My job is to log your jobs.\n To log a new job please send it to me in the following format \n";
    		response += "#jobnumber/client name/job description/minutes spent on job \n";
    		response += "Example: #2016-001/Some Client/Working on concept art/230 \n";
